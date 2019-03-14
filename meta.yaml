@@ -1,0 +1,41 @@
+#I generated this file using conda skeleton
+#using this file I ran conda build 
+
+{% set name = "bashlex" %}
+{% set version = "0.14" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 5a92e0900b7a91de93a338b3fae651adc2b6a0e9656972b9e2ed3afd9c492ffd
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+
+requirements:
+  host:
+    - pip
+    - python
+  run:
+    - python
+
+test:
+  imports:
+    - bashlex
+
+about:
+  home: https://github.com/idank/bashlex.git
+  license: GNU General Public v3 or later (GPLv3+)
+  license_family: GPL3
+  license_file: 
+  summary: Python parser for bash
+  doc_url: 
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - your-github-id-here
